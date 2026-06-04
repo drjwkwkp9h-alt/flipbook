@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Flipbook</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #book {
+      width: 90vw;
+      height: 90vh;
+    }
+
+    .page {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="book"></div>
+
+<!-- IMPORTANT: correct library -->
+<script src="https://unpkg.com/page-flip/dist/js/page-flip.browser.min.js"></script>
+
+<script>
+  const images = [];
+
+  for (let i = 1; i <= 22; i++) {
+    images.push(`page-${i}.jpg`);
+  }
+
+  const pageFlip = new PageFlip(document.getElementById("book"), {
+    width: 550,
+    height: 750,
+    size: "stretch",
+    showCover: true,
+    maxShadowOpacity: 0.5,
+    mobileScrollSupport: true
+  });
+
+  pageFlip.loadFromImages(images);
+</script>
+
+</body>
+</html>
